@@ -1,0 +1,50 @@
+/* Patrícia Sousa - 12/03/2024 */
+
+Database: DBTaskFit
+
+DROP DATABASE IF EXISTS "DBTaskFit";
+
+CREATE DATABASE "DBTaskFit"
+    WITH
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'Portuguese_Portugal.1252'
+    LC_CTYPE = 'Portuguese_Portugal.1252'
+    LOCALE_PROVIDER = 'libc'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1
+    IS_TEMPLATE = False;
+
+COMMENT ON DATABASE "DBTaskFit"
+    IS 'Base de Dados para Listas de Tarefas';
+	
+CREATE TABLE Users (
+	userID SMALLSERIAL PRIMARY KEY,
+	userName VARCHAR(50) UNIQUE NOT NULL,
+	userEmail VARCHAR(100) UNIQUE NOT NULL,
+	userPassword VARCHAR(16) NOT NULL,
+	creationDate TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
+	lastLogin TIMESTAMPTZ
+);
+
+CREATE TABLE Categories (
+	categoryID INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	categoryName VARCHAR(25)
+);
+
+CREATE TABLE Tasks (
+	taskID INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	taskName VARCHAR(50) NOT NULL,
+	taskDescription TEXT,
+	taskDueDate DATE,
+	taskDueTime TIME,
+	CreationDate TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
+	userID INT,
+	categoryID INT,
+	taskStatus BOOLEAN NOT NULL,
+	favorite BOOLEAN,
+	searchTerm VARCHAR(50),
+	
+	CONSTRAINT FK_TASKS_USERS FOREIGN KEY(userID) REFERENCES Users(userID),
+	CONSTRAINT FK_TASKS_CATEGORIES FOREIGN KEY(categoryID) REFERENCES Categories(categoryID)
+);
