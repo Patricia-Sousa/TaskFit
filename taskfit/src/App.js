@@ -1,11 +1,11 @@
 import './App.css';
-import './mainPage.js';
+import Logotipo from 'taskfit/src/componentes/logo.js';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src="logo.png" className="App-logo" alt="logo" />
+        <img src={Logotipo} className="App-logo" alt="Logotipo" />
       </header>
     </div>
   );
