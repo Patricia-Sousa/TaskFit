@@ -25,9 +25,16 @@
   min-width: 10vh;
   min-height: 10vh;
   color:  #61dafb;
+  border: 1px solid #61dafb;
+  border-radius: 20px;
+  padding: 200px 80px 200px 80px;
 }
 
 button{
   background-color: #61dafb;
   color: #282c34;
+}
+
+.Botao-1{
+  margin-right: 15px;
 }
