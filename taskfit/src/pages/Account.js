@@ -1,11 +1,14 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import './account.css';
 
-export default function Conta() {
+function Account() {
     return (
         <div className="Application">
             <div className="pagina"> 
+                <p>Patrícia</p>
             </div>
         </div>
     );
-};
+}
+
+export default Account;
