@@ -9,11 +9,9 @@
     font-size: calc(10px + 2vmin);
 }
 
-.pagina{
-    min-width: 10vh;
-    min-height: 10vh;
+.titulo{
     color:  #61dafb;
-    border: 1px solid #61dafb;
-    border-radius: 20px;
-    padding: 200px 80px 200px 80px;
+    align-content: start;
+    min-width: 200px;
+    min-height: 200px;
 }

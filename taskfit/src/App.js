@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div className="Application">
-      <div className="pagina"> 
+      <div className="area"> 
         <p>TaskFit é uma aplicação <br></br> para Tarefas</p>
           <Button onClick={handleClick} variant="outline-info" className="Botao-1">Criar Conta</Button>
           <Button variant="outline-info">Login</Button>    
